@@ -1,0 +1,209 @@
+:root {
+    --bg: #0a0e1a;
+    --tank: #0d1628;
+    --glow: #00ffe0;
+    --dvd: #ff3c6e;
+    --ui-bg: #111827;
+    --ui-border: #1e2d45;
+    --text: #c8d8e8;
+    --accent: #00ffe0;
+  }
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#title {
+    font-family: 'VT323', monospace;
+    font-size: 2.2rem;
+    color: var(--glow);
+    letter-spacing: 4px;
+    text-shadow: 0 0 12px var(--glow);
+    margin-bottom: 12px;
+}
+
+#game-wrapper {
+    position: relative;
+    border: 1.5px solid var(--ui-border);
+    border-radius: 4px;
+    box-shadow: 0 0 40px rgba(0,255,224,0.06), inset 0 0 60px rgba(0,0,0,0.4);
+}
+
+#game-canvas {
+    display: block;
+    background: var(--tank);
+    border-radius: 4px;
+}
+
+#hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 10px;
+    padding: 0 4px;
+    font-size: 0.7rem;
+    color: rgba(200,216,232,0.5);
+    letter-spacing: 1px;
+  }
+
+#add-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    background: transparent;
+    color: var(--glow);
+    border: 1.5px solid var(--glow);
+    padding: 6px 18px;
+    border-radius: 2px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+#add-btn:hover {
+    background: var(--glow);
+    color: var(--bg);
+    box-shadow: 0 0 14px var(--glow);
+}
+
+ /* ── MODAL ── */
+ #modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(5,8,20,0.85);
+    backdrop-filter: blur(3px);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+  
+#modal-overlay.open { 
+    display: flex; 
+}
+ 
+#modal {
+    background: var(--ui-bg);
+    border: 1.5px solid var(--ui-border);
+    border-radius: 6px;
+    padding: 28px;
+    width: 420px;
+    box-shadow: 0 0 60px rgba(0,0,0,0.7);
+}
+ 
+#modal h2 {
+    font-family: 'VT323', monospace;
+    font-size: 1.6rem;
+    color: var(--glow);
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+}
+ 
+#modal p {
+    font-size: 0.65rem;
+    color: rgba(200,216,232,0.45);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+ 
+#draw-canvas {
+    display: block;
+    background: #080c18;
+    border: 1px solid var(--ui-border);
+    border-radius: 4px;
+    cursor: crosshair;
+    width: 100%;
+    touch-action: none;
+}
+ 
+.modal-tools {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    align-items: center;
+}
+ 
+.color-swatch {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.1s, transform 0.1s;
+}
+  
+.color-swatch:hover { 
+    transform: scale(1.15); 
+}
+
+.color-swatch.active { 
+    border-color: white; 
+}
+ 
+.tool-sep { 
+    flex: 1; 
+}
+ 
+#brush-size {
+    width: 80px;
+    accent-color: var(--glow);
+}
+ 
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+ 
+.btn {
+    flex: 1;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px;
+    border-radius: 2px;
+    cursor: pointer;
+    border: 1.5px solid;
+    transition: background 0.15s, color 0.15s;
+}
+
+.btn-primary {
+    background: var(--glow);
+    color: var(--bg);
+    border-color: var(--glow);
+}
+  
+.btn-primary:hover { 
+    box-shadow: 0 0 12px var(--glow); 
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--ui-border);
+}
+.btn-secondary:hover { 
+    border-color: var(--text); 
+}
+
+.btn-clear {
+    background: transparent;
+    color: #ff3c6e;
+    border-color: #ff3c6e33;
+    flex: 0 0 auto;
+    padding: 8px 14px;
+}
+
+.btn-clear:hover { 
+    background: #ff3c6e22; 
+}

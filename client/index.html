@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Fishies</title>
+</head>
+<body>
+    <!-- Title -->
+    <div id="title">
+        Fish Tank
+    </div>
+
+    <!-- Game container -->
+    <div id="game-wrapper">
+        <canvas id="game-canvas" width="700" height="440"></canvas>
+    </div>
+
+    <div id="hud">
+        <span id="fish-count">FISH: 0</span>
+        <button id="add-btn" onclick="openModal()">+ ADD FISH</button>
+        <span id="status">TANK ACTIVE</span>
+    </div>
+
+    <!-- MODAL -->
+    <div id="modal-overlay">
+        <div id="modal">
+            <h2>DRAW YOUR FISH</h2>
+            <p>USE YOUR MOUSE TO DRAW. CLICK ADD TO RELEASE IT INTO THE TANK.</p>
+            <canvas id="draw-canvas" width="364" height="240"></canvas>
+            <div class="modal-tools">
+                <div class="color-swatch active" style="background:#00ffe0" data-color="#00ffe0" onclick="setColor(this)"></div>
+                <div class="color-swatch" style="background:#ff3c6e" data-color="#ff3c6e" onclick="setColor(this)"></div>
+                <div class="color-swatch" style="background:#f7c948" data-color="#f7c948" onclick="setColor(this)"></div>
+                <div class="color-swatch" style="background:#a78bfa" data-color="#a78bfa" onclick="setColor(this)"></div>
+                <div class="color-swatch" style="background:#34d399" data-color="#34d399" onclick="setColor(this)"></div>
+                <div class="color-swatch" style="background:#fb923c" data-color="#fb923c" onclick="setColor(this)"></div>
+                <div class="tool-sep"></div>
+                <label style="font-size:0.6rem;color:rgba(200,216,232,0.4);letter-spacing:1px">LINE THICKNESS</label>
+                <input type="range" id="brush-size" min="2" max="18" value="5">
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-clear" onclick="clearDrawing()">CLEAR</button>
+                <button class="btn btn-secondary" onclick="closeModal()">CANCEL</button>
+                <button class="btn btn-primary" onclick="addFishToTank()">ADD TO TANK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/constants.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/dvd.js"></script>
+    <script src="js/fish.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/draw.js"></script>
+    <script src="js/main.js"></script>  
+</body>
+</html>
