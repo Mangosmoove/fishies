@@ -7,6 +7,7 @@ let currentSize = 5;
 
 function openModal() {
     document.getElementById('modal-overlay').classList.add('open');
+    clearDrawing();
 }
 function closeModal() {
     document.getElementById('modal-overlay').classList.remove('open');

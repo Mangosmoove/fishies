@@ -1,4 +1,7 @@
-// entry point
+let gameStarted = false;
+
 function startGame() {
-    gameLoop();
+    if (gameStarted) return;
+    gameStarted = true;
+    requestAnimationFrame(gameLoop);
 }
