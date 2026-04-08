@@ -14,12 +14,21 @@ function drawFish(f) {
 }
    
 function checkCollision(f, padding = 40) {
-  const hit = (
+  return (
     dvd.x + padding         < f.x + f.w / 2 &&
     dvd.x + dvd.w - padding > f.x - f.w / 2 &&
     dvd.y + padding         < f.y + f.h / 2 &&
     dvd.y + dvd.h - padding > f.y - f.h / 2
   );
-  if (hit) setStatus('COLLISION');
-  return hit;
+}
+
+function updateFish(f) {
+  f.x += f.vx;
+  f.y += f.vy;
+
+  // bounce off edges
+  if (f.x - f.w / 2 < 0) { f.x = f.w / 2; f.vx *= -1; }
+  if (f.x + f.w / 2 > W) { f.x = W - f.w / 2; f.vx *= -1; }
+  if (f.y - f.h / 2 < 0) { f.y = f.h / 2; f.vy *= -1; }
+  if (f.y + f.h / 2 > H) { f.y = H - f.h / 2; f.vy *= -1; }
 }

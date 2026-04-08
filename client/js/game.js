@@ -18,9 +18,16 @@ function gameLoop(timestamp) {
   updateDVD(delta);
   drawDVD();
 
-  fish.forEach(f => {
-    f.opacity = checkCollision(f) ? 0.35 : 1;
+  fish = fish.filter(f => {
+    updateFish(f);
+    if (checkCollision(f)) {
+      setStatus('COLLISION');
+      userFishCount[f.owner]--;
+      document.getElementById('fish-count').textContent = `FISH: ${fish.length - 1}`;
+      return false;
+    }
     drawFish(f);
+    return true;
   });
 
   // status timer tick

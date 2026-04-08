@@ -1,6 +1,9 @@
-const fish = [];
+let fish = [];
+const userFishCount = {};
+const userList = [];
+const MAX_FISH_PER_USER = 3;
 
-const SPEED = 1.25;
+const SPEED = 0.75;
 const dvd = {
     x: 80, y: 80,
     w: 120, h: 60,
@@ -10,8 +13,3 @@ const dvd = {
 let fishCount = 0;
 let statusText = 'TANK ACTIVE';
 let statusTimer = 0;
-
-function setStatus(text, duration = 120) { // duration in frames
-    statusText = text;
-    statusTimer = duration;
-}
